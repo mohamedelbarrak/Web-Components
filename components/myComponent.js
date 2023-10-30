@@ -18,17 +18,13 @@ class MyBox extends HTMLElement {
       <div class="box1">
         My Media player
         <br>
-        <audio id="gainExample" controls class="box1">
+        <audio id="gainExample1" controls class="box1">
           <source src="./assets/audio/smooth-dark-type-beat-lonely-121871.mp3" type="audio/mpeg">
           Votre navigateur ne supporte pas l'élément audio.
         </audio>
 
-        <br>
-        <label for="gainSlider">Gain</label>
-        <input type="range" min="0" max="1" step="0.01" value="1" id="gainSlider" />
-
         <div class="audio-controls">
-          <audio id="audio" controls style="display: none;">
+          <audio id="gainExample2" controls style="display: none;">
             <source src="./assets/audio/smooth-dark-type-beat-lonely-121871.mp3" type="audio/mpeg">
             Votre navigateur ne supporte pas l'élément audio.
           </audio>
@@ -53,16 +49,9 @@ class MyBox extends HTMLElement {
           <label for="rateControl">Rate:</label>
           <input type="range" id="rateControl" min="0.2" max="3" step="0.1">
 
-
-
-          <!--
           <br>
-        <label for="gainSlider">Gain</label>
-        <input type="range" min="0" max="1" step="0.01" value="1" id="gainSlider" />
-
-        -->
-
-
+          <label for="gainSlider">Gain:</label>
+          <input type="range" min="0" max="1" step="0.01" value="1" id="gainSlider" />
 
 
           <div class="controls">
@@ -101,14 +90,12 @@ class MyBox extends HTMLElement {
       </div>
     `;
 
+    const audio = this.shadowRoot.getElementById('gainExample2');
+
     const playButton = this.shadowRoot.getElementById('playButton');
     const pauseButton = this.shadowRoot.getElementById('pauseButton');
     const stopButton = this.shadowRoot.getElementById('stopButton');
     const volumeControl = this.shadowRoot.getElementById('volumeControl');
-    const audio = this.shadowRoot.getElementById('audio');
-
-    //const gainControl = this.shadowRoot.getElementById('gainSlider');
-
     const muteButton = this.shadowRoot.getElementById('muteButton');
     const increaseVolumeButton = this.shadowRoot.getElementById('increaseVolumeButton');
     const decreaseVolumeButton = this.shadowRoot.getElementById('decreaseVolumeButton');
@@ -117,7 +104,7 @@ class MyBox extends HTMLElement {
     const progressBar = this.shadowRoot.getElementById('progressBar');
 
     const rateControl = this.shadowRoot.getElementById('rateControl');
-
+    const gainSlider = this.shadowRoot.getElementById('gainSlider');
 
     let isMuted = false;
 
@@ -187,8 +174,6 @@ class MyBox extends HTMLElement {
 
 
 
-
-
     let audioContext;
     let gainNode;
 
@@ -196,28 +181,9 @@ class MyBox extends HTMLElement {
     audioContext = new AudioContext();
 
     // the audio element
-/*
-    gainExample = document.createElement('audio');
-    gainExample.src = 'https://mainline.i3s.unice.fr/mooc/drums.mp3';
-    gainExample.controls = true;
-    gainExample.loop = true;
-    gainExample.crossOrigin = 'anonymous';
-    this.shadowRoot.appendChild(gainExample);
 
-    gainSlider = document.createElement('input');
-    gainSlider.type = 'range';
-    gainSlider.min = 0;
-    gainSlider.max = 1;
-    gainSlider.step = 0.01;
-    gainSlider.value = 1;
-    this.shadowRoot.appendChild(gainSlider);
-*/
-
-
-    const gainExample = this.shadowRoot.getElementById('gainExample');
-    const gainSlider = this.shadowRoot.getElementById('gainSlider');
     // fix for autoplay policy
-    gainExample.addEventListener('play', () => audioContext.resume());
+    audio.addEventListener('play', () => audioContext.resume());
 
     buildAudioGraph();
 
@@ -228,7 +194,7 @@ class MyBox extends HTMLElement {
 
     function buildAudioGraph() {
       // create source and gain node
-      let gainMediaElementSource = audioContext.createMediaElementSource(gainExample);
+      let gainMediaElementSource = audioContext.createMediaElementSource(audio);
       gainNode = audioContext.createGain();
 
       // connect nodes together
@@ -237,99 +203,6 @@ class MyBox extends HTMLElement {
     }
 
 
-    /*
-    frequencyControl.addEventListener('input', () => {
-      audio.frequency.value = frequencyControl.value;
-    });
-    
-    
-    detuneControl.addEventListener('input', () => {
-      audio.detune.value = detuneControl.value;
-    });
-    
-    rateControl.addEventListener('input', () => {
-      audio.playbackRate = rateControl.value;
-    });
-
-
-    
-    rateVitesse.addEventListener('change', ({ target: { value }}) => {
-      audio.playbackRate = parseFloat(value, 10);
-    });
-    */
-
-
-/*
-
-  let audioContext;
-  let gainExample, gainSlider, gainNode;
-
-
-  
-   // get the AudioContext
-   audioContext = new AudioContext();
-
-   // the audio element
-   gainExample = document.querySelector('#gainExample');
-   gainSlider = document.querySelector('#gainSlider');
-
-   // fix for autoplay policy
-  gainExample.addEventListener('play',() => audioContext.resume());
-  
-  buildAudioGraph();
-  
-  // input listener on the gain slider
-  gainSlider.oninput = (evt) => {
-    gainNode.gain.value = evt.target.value;
-  }; 
-
-
-function buildAudioGraph() {
-    // create source and gain node
-    let gainMediaElementSource = audioContext.createMediaElementSource(gainExample);
-    gainNode = audioContext.createGain();
-  
-    // connect nodes together
-    gainMediaElementSource.connect(gainNode);
-    gainNode.connect(audioContext.destination);
-}
-
-
-
-
-
-
-    let ctx;
-
-
-      ctx = new AudioContext();
-      
-      // the most simple source 
-      let player = this.shadowRoot.getElementById("player");
-      
-      player.onplay = (e) => {
-        ctx.resume()
-      }
-        
-      let source = ctx.createMediaElementSource(player);
-      
-
-      //source.gain.value = 4;
-
-
-      gainControl.oninput = (evt) => {
-        source.gain.value = evt.target.value;
-      }; 
-      
-      //gainControl.addEventListener('input', () => {
-      //  source.gain.value = gainControl.value;
-      //});
-
-
-      // connect to the speakers
-      source.connect(ctx.destination);
-
-    */
 
 
 
