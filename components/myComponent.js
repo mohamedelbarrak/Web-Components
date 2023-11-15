@@ -18,14 +18,16 @@ class MyBox extends HTMLElement {
       <div class="box1">
         My Media player
         <br>
-        <audio id="gainExample1" controls class="box1">
+        <audio id="audio1" controls crossorigin="anonymous" loop>
           <source src="./assets/audio/smooth-dark-type-beat-lonely-121871.mp3" type="audio/mpeg">
           Votre navigateur ne supporte pas l'élément audio.
         </audio>
 
         <div class="audio-controls">
-          <audio id="gainExample2" controls style="display: none;">
-            <source src="./assets/audio/smooth-dark-type-beat-lonely-121871.mp3" type="audio/mpeg">
+
+
+          <audio id="audio2" controls style="display: none;">
+            <source src="./assets/audio/international-travel-113293.mp3" type="audio/mpeg">
             Votre navigateur ne supporte pas l'élément audio.
           </audio>
 
@@ -55,56 +57,74 @@ class MyBox extends HTMLElement {
 
 
           <div class="controls">
-            <label>60Hz</label>
-            <input type="range" value="0" step="1" min="-30" max="30" oninput="changeGain(this.value, 0);"></input>
-            <output id="gain0">0 dB</output>
+            <label for="rateControlOne">60Hz</label>
+            <input type="range" id="soixante" value="0" step="1" min="-30" max="30"></input>
+          <output id="gain0">0 dB</output>
           </div>
           <div class="controls">
             <label>170Hz</label>
-            <input type="range" value="0" step="1" min="-30" max="30" oninput="changeGain(this.value, 1);"></input>
+            <input type="range" id="centSoixanteDix" value="0" step="1" min="-30" max="30"></input>
             <output id="gain1">0 dB</output>
           </div>
           <div class="controls">
             <label>350Hz</label>
-            <input type="range" value="0" step="1" min="-30" max="30" oninput="changeGain(this.value, 2);"></input>
+            <input type="range" id="troisCentsCinquante" value="0" step="1" min="-30" max="30"></input>
             <output id="gain2">0 dB</output>
           </div>
           <div class="controls">
             <label>1000Hz</label>
-            <input type="range" value="0" step="1" min="-30" max="30" oninput="changeGain(this.value, 3);"></input>
-        <output id="gain3">0 dB</output>
+            <input type="range" id="mille" value="0" step="1" min="-30" max="30"></input>
+            <output id="gain3">0 dB</output>
           </div>
           <div class="controls">
             <label>3500Hz</label>
-            <input type="range" value="0" step="1" min="-30" max="30" oninput="changeGain(this.value, 4);"></input>
+            <input type="range" id="troisMilleCinqCent" value="0" step="1" min="-30" max="30"></input>
             <output id="gain4">0 dB</output>
           </div>
           <div class="controls">
-            <label>10000Hz</label>
-            <input type="range" value="0" step="1" min="-30" max="30" oninput="changeGain(this.value, 5);"></input>
+            <label for="dixMille">10000Hz</label>
+            <input type="range" id="dixMille" value="0" step="1" min="-30" max="30"></input>
             <output id="gain5">0 dB</output>
           </div>
 
+          <div class='webaudio-switch-body' tabindex='1' touch-action='none'><div class='webaudioctrl-tooltip'></div><div part="label" class="webaudioctrl-label"><slot></slot>dd</div></div>
         </div>
 
       </div>
     `;
 
-    const audio = this.shadowRoot.getElementById('gainExample2');
+    let audio = this.shadowRoot.getElementById('audio2');
 
-    const playButton = this.shadowRoot.getElementById('playButton');
-    const pauseButton = this.shadowRoot.getElementById('pauseButton');
-    const stopButton = this.shadowRoot.getElementById('stopButton');
-    const volumeControl = this.shadowRoot.getElementById('volumeControl');
-    const muteButton = this.shadowRoot.getElementById('muteButton');
-    const increaseVolumeButton = this.shadowRoot.getElementById('increaseVolumeButton');
-    const decreaseVolumeButton = this.shadowRoot.getElementById('decreaseVolumeButton');
-    const skipForwardButton = this.shadowRoot.getElementById('skipForwardButton');
-    const skipBackwardButton = this.shadowRoot.getElementById('skipBackwardButton');
-    const progressBar = this.shadowRoot.getElementById('progressBar');
+    let playButton = this.shadowRoot.getElementById('playButton');
+    let pauseButton = this.shadowRoot.getElementById('pauseButton');
+    let stopButton = this.shadowRoot.getElementById('stopButton');
+    let volumeControl = this.shadowRoot.getElementById('volumeControl');
+    let muteButton = this.shadowRoot.getElementById('muteButton');
+    let increaseVolumeButton = this.shadowRoot.getElementById('increaseVolumeButton');
+    let decreaseVolumeButton = this.shadowRoot.getElementById('decreaseVolumeButton');
+    let skipForwardButton = this.shadowRoot.getElementById('skipForwardButton');
+    let skipBackwardButton = this.shadowRoot.getElementById('skipBackwardButton');
+    let progressBar = this.shadowRoot.getElementById('progressBar');
 
-    const rateControl = this.shadowRoot.getElementById('rateControl');
-    const gainSlider = this.shadowRoot.getElementById('gainSlider');
+    let rateControl = this.shadowRoot.getElementById('rateControl');
+    let dixMille = this.shadowRoot.getElementById('dixMille');
+    let troisMilleCinqCent = this.shadowRoot.getElementById('troisMilleCinqCent');
+    let mille = this.shadowRoot.getElementById('mille');
+    let troisCentsCinquante = this.shadowRoot.getElementById('troisCentsCinquante');
+    let centSoixanteDix = this.shadowRoot.getElementById('centSoixanteDix');
+    let soixante = this.shadowRoot.getElementById('soixante');
+
+    /**
+    let gain5 = this.shadowRoot.getElementById('gain5');
+    let gain4 = this.shadowRoot.getElementById('gain4');
+    let gain3 = this.shadowRoot.getElementById('gain3');
+    let gain2 = this.shadowRoot.getElementById('gain2');
+    let gain1 = this.shadowRoot.getElementById('gain1');
+
+    let gains = [gain1, gain2, gain3, gain4, gain5];
+ */
+
+    let gainSlider = this.shadowRoot.getElementById('gainSlider');
 
     let isMuted = false;
 
@@ -174,6 +194,9 @@ class MyBox extends HTMLElement {
 
 
 
+
+/**
+
     let audioContext;
     let gainNode;
 
@@ -185,12 +208,24 @@ class MyBox extends HTMLElement {
     // fix for autoplay policy
     audio.addEventListener('play', () => audioContext.resume());
 
-    buildAudioGraph();
+    //buildAudioGraph();
+
+    // create source and gain node
+    let gainMediaElementSource = audioContext.createMediaElementSource(audio);
+    gainNode = audioContext.createGain();
+
+    // connect nodes together
+    gainMediaElementSource.connect(gainNode);
+    gainNode.connect(audioContext.destination);
 
     // input listener on the gain slider
     gainSlider.oninput = (evt) => {
       gainNode.gain.value = evt.target.value;
     };
+
+
+
+
 
     function buildAudioGraph() {
       // create source and gain node
@@ -205,8 +240,131 @@ class MyBox extends HTMLElement {
 
 
 
+    
+
+    var filters = [];
+    [60, 170, 350, 1000, 3500, 10000].forEach(function(freq, i) {
+      var eq = audioContext.createBiquadFilter();
+      eq.frequency.value = freq;
+      eq.type = "peaking";
+      eq.gain.value = 0;
+      filters.push(eq);
+    });
+    gainMediaElementSource.connect(filters[0]);
+    for(var i = 0; i < filters.length - 1; i++) {
+       filters[i].connect(filters[i+1]);
+     }
+     filters[filters.length - 1].connect(audioContext.destination);
+     function changeGain(sliderVal,nbFilter) {
+      var value = parseFloat(sliderVal);
+      filters[nbFilter].gain.value = value;
+      var output = document.querySelector("#gain"+nbFilter);
+      output.value = value + " dB";
+    }
+    */
 
 
+
+
+    let context = new AudioContext();
+
+    //let mediaElement = document.getElementById('player');
+    let sourceNode = context.createMediaElementSource(audio);
+
+    //audio.onplay = () => {
+    //  context.resume();
+    //}
+    // create the equalizer. It's a set of biquad Filters
+
+    var filters = [];
+
+        // Set filters
+        [60, 170, 350, 1000, 3500, 10000].forEach(function(freq, i) {
+          var eq = context.createBiquadFilter();
+          eq.frequency.value = freq;
+          eq.type = "peaking";
+          eq.gain.value = 0;
+          filters.push(eq);
+        });
+
+    // Connect filters in serie
+      sourceNode.connect(filters[0]);
+      for(var i = 0; i < filters.length - 1; i++) {
+          filters[i].connect(filters[i+1]);
+        }
+
+    // connect the last filter to the speakers
+    filters[filters.length - 1].connect(context.destination);
+
+    function changeGain(sliderVal,nbFilter) {
+      var value = parseFloat(sliderVal);
+      filters[nbFilter].gain.value = value;
+      
+      // update output labels
+      //var output = document.querySelector("#gain"+nbFilter);
+      //let output = this.shadowRoot.getElementById('gain5');
+      //let output = this.shadowRoot.getElementById('gain5');
+      console.log("TOTO"+value);
+      //var output = "gain"+nbFilter;
+
+      //output.value = value + " dB";
+      console.log("TOTOnbFilter"+nbFilter);
+
+      /**
+      if (nbFilter >= 0 && nbFilter <= gains.length) {
+        console.log("nbFilter"+nbFilter);
+        // Update the value of the selected gain
+        gains[nbFilter].value = value + " dB";
+      } else {
+        console.error("Invalid nbFilter value. It should be between 0 and " + (gains.length - 1));
+      }
+ */
+
+      // Construct the ID of the element to access
+      var elementId = "gain" + nbFilter;
+
+      // Try to find the element in the shadowRoot
+
+      var hostElement = document.querySelector('my-box'); // Replace with your actual host element's selector
+      var gainElement = hostElement.shadowRoot.getElementById(elementId);
+
+      //var gainElement = this.shadowRoot.getElementById(elementId);
+
+      if (gainElement) {
+        // Update the value of the found element
+        console.log("nbFilter"+value);
+        gainElement.value = value + " dB";
+      } else {
+        console.error("Element with ID '" + elementId + "' not found.");
+      }
+
+
+
+    }
+    
+    dixMille.addEventListener('input', () => {
+      changeGain(dixMille.value, 5); // Appelez la fonction changeGain avec la valeur du curseur
+    });
+
+    troisMilleCinqCent.addEventListener('input', () => {
+      changeGain(troisMilleCinqCent.value, 4); // Appelez la fonction changeGain avec la valeur du curseur
+    });
+
+    mille.addEventListener('input', () => {
+      changeGain(mille.value, 3); // Appelez la fonction changeGain avec la valeur du curseur
+    });
+
+    troisCentsCinquante.addEventListener('input', () => {
+      changeGain(troisCentsCinquante.value, 2); // Appelez la fonction changeGain avec la valeur du curseur
+    });
+
+    centSoixanteDix.addEventListener('input', () => {
+      changeGain(centSoixanteDix.value, 1); // Appelez la fonction changeGain avec la valeur du curseur
+    });
+
+    soixante.addEventListener('input', () => {
+      changeGain(soixante.value, 0); // Appelez la fonction changeGain avec la valeur du curseur
+    });
 
 /*
 
