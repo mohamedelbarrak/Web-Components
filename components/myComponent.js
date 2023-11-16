@@ -14,6 +14,7 @@ class MyBox extends HTMLElement {
     this.attachShadow({ mode: 'open' });
 
     this.shadowRoot.innerHTML = `
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
       <div class="box1">
         My Media player
         <br>
@@ -23,8 +24,7 @@ class MyBox extends HTMLElement {
         </audio>
 
         <div class="audio-controls">
-
-
+        
           <audio id="audio2" controls style="display: none;">
             <source src="./assets/audio/international-travel-113293.mp3" type="audio/mpeg">
             Votre navigateur ne supporte pas l'élément audio.
@@ -86,8 +86,20 @@ class MyBox extends HTMLElement {
             <output id="gain5">0 dB</output>
           </div>
 
+          dddd
+          <webaudio-knob id="knob1"
+          src="./components/images/LittlePhatty.png" 
+          value="50" step="1" 
+          diameter="64" 
+          tooltip="Knob1 tooltip %d">
+          </webaudio-knob>
+          ddd
           <div class='webaudio-switch-body' tabindex='1' touch-action='none'><div class='webaudioctrl-tooltip'></div><div part="label" class="webaudioctrl-label"><slot></slot>dd</div></div>
-        </div>
+        
+        
+          
+
+          </div>
 
       </div>
     `;
@@ -112,6 +124,10 @@ class MyBox extends HTMLElement {
     let troisCentsCinquante = this.shadowRoot.getElementById('troisCentsCinquante');
     let centSoixanteDix = this.shadowRoot.getElementById('centSoixanteDix');
     let soixante = this.shadowRoot.getElementById('soixante');
+
+    this.knob = this.shadowRoot.querySelector('webaudio-knob');
+    let knob = this.shadowRoot.getElementById('knob1');
+
 
     /**
     let gain5 = this.shadowRoot.getElementById('gain5');
@@ -192,6 +208,10 @@ class MyBox extends HTMLElement {
     });
 
 
+    knob.addEventListener('input', () => {
+      audio.volume = this.knob.value;
+      console.log(audio.volume); // Log the volume for debugging
+    });
 
 
 /**

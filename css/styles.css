@@ -3,6 +3,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-image: url('kisspng-audio-mixers-vector-graphics-disc-jockey-dj-mixer-dj-mixer-pirate-studios-5d31b9b7505335.608541721563539895329.png');
     margin: 0;
   }
   
@@ -10,6 +11,7 @@ body {
     width: 70%;
     height: 70%;
     background-color: #3498db;
+    background-image: url('kisspng-audio-mixers-vector-graphics-disc-jockey-dj-mixer-dj-mixer-pirate-studios-5d31b9b7505335.608541721563539895329.png');
     color: #fff;
     text-align: center;
     display: flex;
