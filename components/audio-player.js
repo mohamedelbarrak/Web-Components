@@ -278,7 +278,7 @@
               width: 30px;
               min-width: 30px;
               height: 30px;
-              background: url("./audio-player-icon-sprite.png") 0 center/500% 100% no-repeat;
+              
               appearance: none;
               border: none;
               text-indent: -999999px;
@@ -293,7 +293,7 @@
               width: 30px;
               min-width: 30px;
               height: 30px;
-              background: url("./audio-player-icon-sprite.png") 50% center/500% 100% no-repeat;
+              
               position: relative;
           }
           
@@ -301,7 +301,6 @@
               background: red;
           }
           .volume-bar.over {
-              background: url("./audio-player-icon-sprite.png") 100% center/500% 100% no-repeat;
           }
           
           .volume-field {
@@ -465,7 +464,7 @@
           <button id="decreaseVolumeButton" class="btn btn-secondary">Volume -</button>
           <input type="range" id="volumeControl" min="0" max="1" step="0.1">
           <button id="increaseVolumeButton" class="btn btn-secondary">Volume +</button>
-          <button id="muteButton" class="btn btn-secondary"><i class="bi bi-volume-up"></i></button>
+          <!-- <button id="muteButton" class="btn btn-secondary"><i class="bi bi-volume-up"></i></button> -->
           <button id="skipBackwardButton" class="btn btn-secondary">-5s</button>
           <button id="skipForwardButton" class="btn btn-secondary">+5s</button>
           <progress id="progressBar" value="0" max="100"></progress>
@@ -516,7 +515,7 @@
       </div>
         `;
         
-        this.audio = this.shadowRoot.querySelector('audio');
+        let audio =this.audio = this.shadowRoot.querySelector('audio');
         this.playPauseBtn = this.shadowRoot.querySelector('.play-btn');
         this.titleElement = this.shadowRoot.querySelector('.audio-name');
         this.volumeBar = this.shadowRoot.querySelector('.volume-field');
@@ -529,13 +528,13 @@
 
 
 //*
-let audio = this.shadowRoot.getElementById('audio2');
+//let audio = this.shadowRoot.getElementById('audio2');
 
 let playButton = this.shadowRoot.getElementById('playButton');
 let pauseButton = this.shadowRoot.getElementById('pauseButton');
 let stopButton = this.shadowRoot.getElementById('stopButton');
 let volumeControl = this.shadowRoot.getElementById('volumeControl');
-let muteButton = this.shadowRoot.getElementById('muteButton');
+//let muteButton = this.shadowRoot.getElementById('muteButton');
 let increaseVolumeButton = this.shadowRoot.getElementById('increaseVolumeButton');
 let decreaseVolumeButton = this.shadowRoot.getElementById('decreaseVolumeButton');
 let skipForwardButton = this.shadowRoot.getElementById('skipForwardButton');
@@ -576,6 +575,7 @@ volumeControl.addEventListener('input', () => {
   audio.volume = volumeControl.value;
 });
 
+/*
 muteButton.addEventListener('click', () => {
   if (audio.muted) {
     audio.muted = false;
@@ -585,7 +585,7 @@ muteButton.addEventListener('click', () => {
     muteButton.innerHTML = '<i class="bi bi-volume-mute"></i>';
   }
 });
-
+**/
 increaseVolumeButton.addEventListener('click', () => {
   if (audio.volume < 1) {
     audio.volume += 0.1;
