@@ -152,9 +152,6 @@ audio {
           diameter="64"
           tooltip="10000 Hz">
           </webaudio-knob>
-
-          
-
         
           
 
@@ -187,6 +184,9 @@ audio {
     let centSoixanteDix = this.shadowRoot.getElementById('centSoixanteDix');
     let soixante = this.shadowRoot.getElementById('soixante');
 
+    const context = new AudioContext();
+    let src = context.createMediaElementSource(audio);
+
     fileInput.onchange = function() {
       const files = this.files;
       console.log('FILES[0]: ', files[0]);
@@ -198,8 +198,8 @@ audio {
       canvas.height = window.innerHeight;
       const ctx = canvas.getContext("2d");
 
-      const context = new AudioContext();
-      let src = context.createMediaElementSource(audio);
+      //const context = new AudioContext();
+      //let src = context.createMediaElementSource(audio);
       const analyser = context.createAnalyser();
 
       src.connect(analyser);
@@ -304,7 +304,7 @@ audio {
 
     };
 
-    let context = new AudioContext();
+    //let context = new AudioContext();
 
 
     let playButton = this.shadowRoot.getElementById('playButton');
@@ -320,7 +320,7 @@ audio {
 
 
 
-    let sourceNode = context.createMediaElementSource(audio);
+    //let sourceNode = context.createMediaElementSource(audio);
 
 
 
@@ -335,7 +335,7 @@ audio {
       filters.push(eq);
     });
 
-    sourceNode.connect(filters[0]);
+    src.connect(filters[0]);
     for(var i = 0; i < filters.length - 1; i++) {
         filters[i].connect(filters[i+1]);
       }
