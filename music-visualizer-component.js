@@ -101,6 +101,12 @@ audio {
           <input type="range" id="volumeControl" value="1" min="0" max="1" step="0.1">
           <button id="increaseVolumeButton" class="btn btn-secondary">Volume +</button>
           <button id="muteButton" class="btn btn-secondary"><i class="bi bi-volume-up"></i></button>
+
+          <webaudio-switch src="./components/images/switches/switch1.png" 
+            value="0" height="56" width="56" 
+            tooltip="Switch-A Tooltip text test">
+          </webaudio-switch>
+
           <button id="skipBackwardButton" class="btn btn-secondary">-5s</button>
           <button id="skipForwardButton" class="btn btn-secondary">+5s</button>
           <progress id="progressBar" value="0" max="100"></progress>
@@ -155,6 +161,10 @@ audio {
         
           
 
+          Left <input type="range" id="pannerSlider" class="control-panner" list="pan-vals" min="-1" max="1" value="0" step="0.1" data-action="panner" /> Right
+
+          
+
           </div>
 
       </div>
@@ -171,7 +181,38 @@ audio {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
   }
 
+/**
+  muteButton.addEventListener('click', () => {
+    if (audio.muted) {
+      audio.muted = false;
+      muteButton.innerHTML = '<i class="bi-volume-up"> </i>';
+    } else {
+      audio.muted = true;
+      muteButton.innerHTML = '<i class="bi bi-volume-mute"></i>';
+    }
+  });
+
+   */
+  changeRelativeURLsToAbsolute() {
+    let elements = this.shadowRoot.querySelectorAll('img, webaudio-knob, webaudio-switch');
+    
+
+    elements.forEach((e) => {
+      let elementPath = e.getAttribute('src');
+      // if the image path isn't already absolute, make it absolute
+
+    });
+
+  };
+
   connectedCallback() {
+
+    
+
+    this.changeRelativeURLsToAbsolute();
+
+
+    
     const fileInput = this.shadowRoot.getElementById("file-input");
     const canvas = this.shadowRoot.getElementById("canvas");
     const h3 = this.shadowRoot.getElementById('name');
@@ -300,7 +341,7 @@ audio {
       });
 
 
-      
+     
 
     };
 
@@ -319,6 +360,7 @@ audio {
     let progressBar = this.shadowRoot.getElementById('progressBar');
 
 
+    let pannerSlider = this.shadowRoot.getElementById('pannerSlider');
 
     //let sourceNode = context.createMediaElementSource(audio);
 
@@ -343,6 +385,12 @@ audio {
     // connect the last filter to the speakers
     filters[filters.length - 1].connect(context.destination);
 
+
+
+
+
+
+    
     function changeGain(sliderVal,nbFilter) {
       var value = parseFloat(sliderVal);
       filters[nbFilter].gain.value = value;
@@ -414,6 +462,16 @@ audio {
       audio.volume = volumeControl.value;
     });
 
+    //pannerSlider.addEventListener('input', () => {
+    //  audio.pan.value = pannerSlider.value;
+    //});
+
+
+
+
+
+
+
     muteButton.addEventListener('click', () => {
       if (audio.muted) {
         audio.muted = false;
@@ -455,16 +513,15 @@ audio {
       }
     });
 
-    rateControl.addEventListener('input', () => {
-      audio.playbackRate = rateControl.value;
-    });
+    //rateControl.addEventListener('input', () => {
+    //  audio.playbackRate = rateControl.value;
+    //});
 
 
-    knob.addEventListener('input', () => {
-      audio.volume = this.knob.value;
-      console.log(audio.volume); // Log the volume for debugging
-    });
-
+    //knob.addEventListener('input', () => {
+    //  audio.volume = this.knob.value;
+    //  console.log(audio.volume); // Log the volume for debugging
+    //});
 
 
 
