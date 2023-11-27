@@ -38,7 +38,6 @@ audio {
   top: 100px;
   right: 100px;
   z-index: 3;
-  color: #eeeeee;
   font-family: monospace;
 }
 
@@ -64,12 +63,9 @@ audio {
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
       <div class="box1">
-        Welcome to media player
         <br>
 
-
-
-      <input type="file" id="file-input" accept="audio/*,video/*,image/*" />
+      <input type="file" id="file-input" controls loop crossorigin="anonymous" accept="audio/*,video/*,image/*" />
       <canvas id="canvas"></canvas>
       
       <h5 id="name"></h3>
@@ -84,7 +80,7 @@ audio {
 
         <div class="audio-controls">
         
-          <audio id="audio" controls style="display: none;">
+          <audio id="audio" controls loop crossorigin="anonymous" controls style="display: none;">
             <source type="audio/mpeg">
             Votre navigateur ne supporte pas l'élément audio.
           </audio>
@@ -110,7 +106,8 @@ audio {
           <button id="skipBackwardButton" class="btn btn-secondary">-5s</button>
           <button id="skipForwardButton" class="btn btn-secondary">+5s</button>
           <progress id="progressBar" value="0" max="100"></progress>
-
+          <label for="pannerSlider">Balance</label>
+          <input type="range" min="-1" max="1" step="0.1" value="0" id="pannerSlider" />
 
 
 
@@ -193,6 +190,8 @@ audio {
   });
 
    */
+
+  
   changeRelativeURLsToAbsolute() {
     let elements = this.shadowRoot.querySelectorAll('img, webaudio-knob, webaudio-switch');
     
@@ -224,6 +223,7 @@ audio {
     let troisCentsCinquante = this.shadowRoot.getElementById('troisCentsCinquante');
     let centSoixanteDix = this.shadowRoot.getElementById('centSoixanteDix');
     let soixante = this.shadowRoot.getElementById('soixante');
+    
 
     const context = new AudioContext();
     let src = context.createMediaElementSource(audio);
@@ -341,11 +341,43 @@ audio {
       });
 
 
+
+
      
 
     };
+    let playerPanner, pannerNode;
+    let pannerSlider;
 
-    //let context = new AudioContext();
+    window.onload = () => {       
+    
+    // the audio element
+   playerPanner = this.shadowRoot.getElementById("audio");
+   playerPanner.onplay = (e) => {context.resume();}
+  
+   
+      pannerSlider = this.shadowRoot.getElementById('pannerSlider');
+      //console.log("toto1" + pannerSlider);
+      buildAudioGraphPanner();
+      //console.log("toto1.1" + pannerSlider);
+     // input listener on the gain slider
+     pannerSlider.oninput = (evt) => {
+      //console.log("toto" + pannerSlider);
+       pannerNode.pan.value = evt.target.value;
+     }; 
+   };
+   
+   function buildAudioGraphPanner() {
+       // create source and gain node
+       //let source = context.createMediaElementSource(playerPanner);
+
+       pannerNode = context.createStereoPanner();
+     
+       // connect nodes together
+       src.connect(pannerNode);
+       pannerNode.connect(context.destination);
+   
+   }
 
 
     let playButton = this.shadowRoot.getElementById('playButton');
@@ -360,7 +392,6 @@ audio {
     let progressBar = this.shadowRoot.getElementById('progressBar');
 
 
-    let pannerSlider = this.shadowRoot.getElementById('pannerSlider');
 
     //let sourceNode = context.createMediaElementSource(audio);
 

@@ -166,7 +166,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 height: 100%;
-background: #1D1F20;
+background: #050505;
 }
 #box {
 display: flex;
@@ -180,9 +180,11 @@ font-size: 2.5rem;
 }
 .gradient-border {
 --borderWidth: 30px;
-background: rgb(204, 16, 16);
 position: relative;
 border-radius: var(--borderWidth);
+padding: -30px;
+padding-bottom: -40px;
+
 }
 .gradient-border:after {
 content: '';
