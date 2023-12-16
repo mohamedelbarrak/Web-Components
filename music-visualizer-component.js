@@ -90,21 +90,26 @@ audio {
             <div class="media-thumb" id="mediaThumb"></div>
           </div>
 
-          <button id="playButton">Play</button>
-          <button id="pauseButton">Pause</button>
-          <button id="stopButton">Replay</button>
-          <button id="decreaseVolumeButton" class="btn btn-secondary">Volume -</button>
+          <button id="decreaseVolumeButton"><img src='https://img.icons8.com/metro/26/low-volume.png'/></button>
           <input type="range" id="volumeControl" value="1" min="0" max="1" step="0.1">
-          <button id="increaseVolumeButton" class="btn btn-secondary">Volume +</button>
-          <button id="muteButton" class="btn btn-secondary"><i class="bi bi-volume-up"></i></button>
+          <button id="increaseVolumeButton"><img src='https://img.icons8.com/metro/26/high-volume.png'/></button>
+          
+
+          <button id="playButton"><img src='https://img.icons8.com/metro/26/play.png'/></button>
+          <button id="pauseButton"><img src='https://img.icons8.com/metro/26/pause.png' /></button>
+          <button id="stopButton"><img src="https://img.icons8.com/metro/26/stop.png"/></button>
+          <button id="skipBackwardButton"><img src="https://img.icons8.com/metro/26/rewind.png"></button>
+          <button id="skipForwardButton"><img src="https://img.icons8.com/metro/26/fast-forward.png"></button>
+          
+        
+
+          <button id="muteButton"><img id="muteImage" src="https://img.icons8.com/metro/26/mute.png"></button>
 
           <webaudio-switch src="./components/images/switches/switch1.png" 
             value="0" height="56" width="56" 
             tooltip="Switch-A Tooltip text test">
           </webaudio-switch>
 
-          <button id="skipBackwardButton" class="btn btn-secondary">-5s</button>
-          <button id="skipForwardButton" class="btn btn-secondary">+5s</button>
           <progress id="progressBar" value="0" max="100"></progress>
           <label for="pannerSlider">Balance</label>
           <input type="range" min="-1" max="1" step="0.1" value="0" id="pannerSlider" />
@@ -158,7 +163,7 @@ audio {
         
           
 
-          Left <input type="range" id="pannerSlider" class="control-panner" list="pan-vals" min="-1" max="1" value="0" step="0.1" data-action="panner" /> Right
+          
 
           
 
@@ -176,6 +181,8 @@ audio {
 
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+    
   }
 
 /**
@@ -191,8 +198,11 @@ audio {
 
    */
 
-  
-  changeRelativeURLsToAbsolute() {
+
+
+  connectedCallback() {
+
+    
     let elements = this.shadowRoot.querySelectorAll('img, webaudio-knob, webaudio-switch');
     
 
@@ -201,15 +211,6 @@ audio {
       // if the image path isn't already absolute, make it absolute
 
     });
-
-  };
-
-  connectedCallback() {
-
-    
-
-    this.changeRelativeURLsToAbsolute();
-
 
     
     const fileInput = this.shadowRoot.getElementById("file-input");
@@ -390,7 +391,8 @@ audio {
     let skipForwardButton = this.shadowRoot.getElementById('skipForwardButton');
     let skipBackwardButton = this.shadowRoot.getElementById('skipBackwardButton');
     let progressBar = this.shadowRoot.getElementById('progressBar');
-
+    
+    let muteImage = this.shadowRoot.getElementById('muteImage');
 
 
     //let sourceNode = context.createMediaElementSource(audio);
@@ -506,10 +508,10 @@ audio {
     muteButton.addEventListener('click', () => {
       if (audio.muted) {
         audio.muted = false;
-        muteButton.innerHTML = '<i class="bi-volume-up"> </i>';
+        muteImage.src = 'https://img.icons8.com/metro/26/mute.png';
       } else {
         audio.muted = true;
-        muteButton.innerHTML = '<i class="bi bi-volume-mute"></i>';
+        muteImage.src = 'https://img.icons8.com/metro/26/high-volume.png';
       }
     });
 
