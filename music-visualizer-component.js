@@ -8,6 +8,7 @@ class MusicVisualizerComponent extends HTMLElement {
     <style>
     
 body {
+  
 }
 
 #file-input {
@@ -18,7 +19,7 @@ body {
 #canvas {
   position: absolute;
   padding-right : 40%;
-  width: 1016px;
+  width: 100%;
   justify-content: center;
   align-items: center;
   height: 55%;
@@ -58,17 +59,19 @@ audio {
   100%{ background-position: 8px 8px; }
 }
     
+.injected-text {
+  margin-top: -100px;
+  margin-left: 1000px;
+}
 
 
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
       <div class="box1">
-        <br>
-
       <input type="file" id="file-input" controls loop crossorigin="anonymous" accept="audio/*,video/*,image/*" />
       <canvas id="canvas"></canvas>
       
-      <h5 id="name"></h3>
+      <h3 id="name" class="injected-text"></h3>
 
       <script src="music-visualizer-script.js"></script>
 
@@ -89,7 +92,7 @@ audio {
             <div class="media-progress" id="mediaProgress"></div>
             <div class="media-thumb" id="mediaThumb"></div>
           </div>
-
+          <br>
           <button id="decreaseVolumeButton"><img src='https://img.icons8.com/metro/26/low-volume.png'/></button>
           <input type="range" id="volumeControl" value="1" min="0" max="1" step="0.1">
           <button id="increaseVolumeButton"><img src='https://img.icons8.com/metro/26/high-volume.png'/></button>
@@ -345,8 +348,10 @@ audio {
 
 
      
+    
 
     };
+    
     let playerPanner, pannerNode;
     let pannerSlider;
 
@@ -365,9 +370,23 @@ audio {
      pannerSlider.oninput = (evt) => {
       //console.log("toto" + pannerSlider);
        pannerNode.pan.value = evt.target.value;
+       console.log("testtest2");
      }; 
+
+
+     /*
+     pannerSlider.addEventListener('input', () => {
+      var value = parseFloat(pannerSlider.value);
+      pannerNode.pan.value = value;
+      pannerSlider.value = value;
+      console.log("testtest1");
+    });
+    */
+
+
    };
    
+
    function buildAudioGraphPanner() {
        // create source and gain node
        //let source = context.createMediaElementSource(playerPanner);
@@ -378,6 +397,7 @@ audio {
        src.connect(pannerNode);
        pannerNode.connect(context.destination);
    
+
    }
 
 
