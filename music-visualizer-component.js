@@ -18,12 +18,11 @@ body {
 
 #canvas {
   position: absolute;
-  padding-right : 40%;
-  width: 100%;
+  padding-right: 40%;
+  width: 90%;
   justify-content: center;
   align-items: center;
   height: 55%;
-  display: flex;
   padding-top: 3%;
 }
 
@@ -32,14 +31,6 @@ audio {
   left: 500px;
   bottom: 50px;
   z-index: 3;
-}
-
-#name {
-  position: absolute;
-  top: 100px;
-  right: 100px;
-  z-index: 3;
-  font-family: monospace;
 }
 
 #background {
@@ -63,24 +54,35 @@ audio {
   margin-top: -100px;
   margin-left: 1000px;
 }
-
+.balance{
+  text-align: right;
+  font-style: italic;
+  font-size: 40%;
+}
+.play-button {
+  background-color: #BDB76B;
+  padding: 0.1% 0.2%;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.button-group {
+display: flex;
+justify-content: space-between;
+gap: 10px; 
+margin-top: 2%;
+margin-right: 5%;
+margin-left: 5%;
+}
 
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
       <div class="box1">
       <input type="file" id="file-input" controls loop crossorigin="anonymous" accept="audio/*,video/*,image/*" />
       <canvas id="canvas"></canvas>
-      
-      <h3 id="name" class="injected-text"></h3>
 
       <script src="music-visualizer-script.js"></script>
-
-
-
       <br><br><br><br><br><br><br>
-
-
-
         <div class="audio-controls">
         
           <audio id="audio" controls loop crossorigin="anonymous" controls style="display: none;">
@@ -93,40 +95,30 @@ audio {
             <div class="media-thumb" id="mediaThumb"></div>
           </div>
           <br>
-          <button id="decreaseVolumeButton"><img src='https://img.icons8.com/metro/26/low-volume.png'/></button>
-          <input type="range" id="volumeControl" value="1" min="0" max="1" step="0.1">
-          <button id="increaseVolumeButton"><img src='https://img.icons8.com/metro/26/high-volume.png'/></button>
-          
-
-          <button id="playButton"><img src='https://img.icons8.com/metro/26/play.png'/></button>
-          <button id="pauseButton"><img src='https://img.icons8.com/metro/26/pause.png' /></button>
-          <button id="stopButton"><img src="https://img.icons8.com/metro/26/stop.png"/></button>
-          <button id="skipBackwardButton"><img src="https://img.icons8.com/metro/26/rewind.png"></button>
-          <button id="skipForwardButton"><img src="https://img.icons8.com/metro/26/fast-forward.png"></button>
-          
-        
-
-          <button id="muteButton"><img id="muteImage" src="https://img.icons8.com/metro/26/mute.png"></button>
-
-          <webaudio-switch src="./components/images/switches/switch1.png" 
-            value="0" height="56" width="56" 
-            tooltip="Switch-A Tooltip text test">
-          </webaudio-switch>
-
+         
+          <button id="playButton" class="play-button"><img src='https://img.icons8.com/metro/26/play.png'/></button>
+          <button id="pauseButton" class="play-button"><img src='https://img.icons8.com/metro/26/pause.png' /></button>
+          <button id="stopButton" class="play-button"><img src="https://img.icons8.com/metro/26/stop.png"/></button>
+          <button id="skipBackwardButton" class="play-button"><img src="https://img.icons8.com/metro/26/rewind.png"></button>
           <progress id="progressBar" value="0" max="100"></progress>
-          <label for="pannerSlider">Balance</label>
-          <input type="range" min="-1" max="1" step="0.1" value="0" id="pannerSlider" />
+          <button id="skipForwardButton" class="play-button"><img src="https://img.icons8.com/metro/26/fast-forward.png"></button>
+          <button id="muteButton" class="play-button"><img id="muteImage" src="https://img.icons8.com/metro/26/mute.png"></button>
+          <button id="decreaseVolumeButton" class="play-button"><img src='https://img.icons8.com/metro/26/low-volume.png'/></button>
+          <input type="range" id="volumeControl" value="1" min="0" max="1" step="0.1">
+          <button id="increaseVolumeButton" class="play-button"><img src='https://img.icons8.com/metro/26/high-volume.png'/></button>
+          <webaudio-switch src="./components/images/switches/switch1.png" 
+          value="0" height="56" width="56" 
+          tooltip="Switch-A Tooltip text test">
+          </webaudio-switch>
+        
+<div class="button-group">
 
-
-
-          
-          <webaudio-knob
+<webaudio-knob
           src="./components/images/LittlePhatty.png"
           id="soixante" value="0" step="1" min="-30" max="30"
           diameter="64"
           tooltip="60 Hz">
           </webaudio-knob>
-
 
           <webaudio-knob
           src="./components/images/LittlePhatty.png" 
@@ -166,9 +158,13 @@ audio {
         
           
 
-          
+        </div>  
 
-          
+        <div>
+        <label for="pannerSlider" class="balance" >Balance</label>
+        <input type="range" min="-1" max="1" step="0.1" value="0" id="pannerSlider" />
+        </div>
+
 
           </div>
 
@@ -218,7 +214,6 @@ audio {
     
     const fileInput = this.shadowRoot.getElementById("file-input");
     const canvas = this.shadowRoot.getElementById("canvas");
-    const h3 = this.shadowRoot.getElementById('name');
     const audio = this.shadowRoot.getElementById("audio");
 
     let dixMille = this.shadowRoot.getElementById('dixMille');
@@ -236,8 +231,6 @@ audio {
       const files = this.files;
       console.log('FILES[0]: ', files[0]);
       audio.src = URL.createObjectURL(files[0]);
-      const name = files[0].name;
-      h3.innerText = `${name}`;
 
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
