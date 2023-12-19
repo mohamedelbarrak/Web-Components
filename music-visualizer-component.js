@@ -495,7 +495,6 @@ margin-left: 5%;
     });
 
     pauseButton.addEventListener('click', () => {
-      console.log("MOMO pause");
       audio.pause();
     });
 
