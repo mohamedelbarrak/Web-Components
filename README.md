@@ -1,5 +1,5 @@
 # My Media Player
-Welcome to My Media Player, a web application that provides a customizable music visualizer and a set of audio balance controls. This project is built using web components, allowing you to easily integrate and customize different audio components in your web pages.
+Welcome to My Media Player, a web application that provides a customizable music visualizer and a set of audio disque controls. This project is built using web components, allowing you to easily integrate and customize different audio components in your web pages.
 
 ## Features
 Music Visualizer: The music visualizer component creates a dynamic visual representation of the audio being played. It displays colorful bars that move in sync with the audio frequency.
@@ -18,16 +18,16 @@ Music Visualizer Component
 ````
 This component creates a visualizer that reacts to the audio being played. You can customize its appearance by modifying the styles in the music-visualizer-component.js file.
 
-Audio Balance Component
+Audio Disque Component
 ````html
-<my-balance audio-path="./assets/audio/RapTrap1.mp3"></my-balance>
+<my-disque audio-path="./assets/audio/RapTrap1.mp3"></my-disque>
 ````
-The my-balance component represents a record player with audio controls. You can customize the appearance and behavior by modifying the styles and scripts in the my-balance.js file.
+The my-disque component represents a record player with audio controls. You can customize the appearance and behavior by modifying the styles and scripts in the my-disque.js file.
 
 ## Customization
-Styles: Customize the appearance of the visualizer and balance components by modifying the CSS styles in the music-visualizer-component.js and my-balance.js files.
+Styles: Customize the appearance of the visualizer and disque components by modifying the CSS styles in the music-visualizer-component.js and my-disque.js files.
 
-Functionality: Adjust the audio processing and control logic by modifying the JavaScript code in the music-visualizer-component.js and my-balance.js files.
+Functionality: Adjust the audio processing and control logic by modifying the JavaScript code in the music-visualizer-component.js and my-disque.js files.
 
 ## Dependencies
 Bootstrap Icons
