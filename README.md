@@ -89,13 +89,14 @@ Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099
 
 Function: Toggles the visibility of the my-disque components based on the state of the switch.
 
-Equalizer Knobs
+Equalizer
 
 Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/a9be86af-792f-4d0f-91f4-30b2bb4a8539)
 
 Functions: Adjust the gain for specific frequency bands (60 Hz, 170 Hz, 350 Hz, 1000 Hz, 3500 Hz, 10000 Hz).
 
-Balance Knobs
+Balance
+
 Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/7b491094-9b6e-4395-800b-0deba052969b)
 
 Functions: Adjust the balance and volume controls for the audio.
