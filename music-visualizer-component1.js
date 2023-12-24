@@ -1,5 +1,5 @@
 // music-visualizer-component.js
-class MusicVisualizerComponent extends HTMLElement {
+class MusicVisualizerComponent1 extends HTMLElement {
   constructor() {
     super();
 
@@ -7,207 +7,11 @@ class MusicVisualizerComponent extends HTMLElement {
     template.innerHTML = `
     <style>
     
-body {
-  
-}
-
-#file-input {
-  position: fixed;
-  z-index: 3;
-}
-
-#canvas {
-  position: absolute;
-  padding-right: 40%;
-  width: 95%;
-  justify-content: center;
-  align-items: center;
-  height: 55%;
-  padding-top: 3%;
-}
-
-audio {
-  position: absolute;
-  left: 500px;
-  bottom: 50px;
-  z-index: 3;
-}
-
-#background {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-size: 100% 7px;
-  animation: bg 1s infinite linear;
-  z-index: 2;
-  opacity: 0.3;
-}
-
-@keyframes bg {
-  0%{ background-position: 0 0; }
-  100%{ background-position: 8px 8px; }
-}
-    
-.injected-text {
-  margin-top: -100px;
-  margin-left: 1000px;
-}
-.balance{
-  text-align: right;
-  font-style: italic;
-  font-size: 40%;
-}
-.test{
-  text-align: right;
-  font-style: italic;
-  font-size: 40%;
-  margin-top: -50px;
-}
-.play-button {
-  background-color: #BDB76B;
-  padding: 0.1% 0.2%;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-}
-.button-group {
-display: flex;
-justify-content: space-between;
-gap: 10px; 
-margin-top: 2%;
-margin-right: 5%;
-margin-left: 5%;
-}
-
     </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
-      <div class="box1">
-      <input type="file" id="file-input" controls loop crossorigin="anonymous" accept="audio/*,video/*,image/*" />
-      <canvas id="canvas"></canvas>
+    <script src="music-visualizer-script.js"></script>
+    
+Hi
 
-      <script src="music-visualizer-script.js"> </script>
-      <br><br><br><br><br><br><br>
-        <div class="audio-controls">
-        
-          <audio id="audio" controls loop crossorigin="anonymous" controls style="display: none;">
-            <source type="audio/mpeg">
-            Votre navigateur ne supporte pas l'élément audio.
-          </audio>
-
-          <div class="media-controls">
-            <div class="media-progress" id="mediaProgress"></div>
-            <div class="media-thumb" id="mediaThumb"></div>
-          </div>
-          <br>
-         
-          <button id="playButton" class="play-button"><img src='https://img.icons8.com/metro/26/play.png'/></button>
-          <button id="pauseButton" class="play-button"><img src='https://img.icons8.com/metro/26/pause.png' /></button>
-          <button id="stopButton" class="play-button"><img src="https://img.icons8.com/metro/26/stop.png"/></button>
-          <button id="skipBackwardButton" class="play-button"><img src="https://img.icons8.com/metro/26/rewind.png"></button>
-          <progress id="progressBar" value="0" max="100"></progress>
-          <button id="skipForwardButton" class="play-button"><img src="https://img.icons8.com/metro/26/fast-forward.png"></button>
-          <button id="muteButton" class="play-button"><img id="muteImage" src="https://img.icons8.com/metro/26/mute.png"></button>
-          <button id="decreaseVolumeButton" class="play-button"><img src='https://img.icons8.com/metro/26/low-volume.png'/></button>
-          <input type="range" id="volumeControl" value="1" min="0" max="1" step="0.1">
-          <button id="increaseVolumeButton" class="play-button"><img src='https://img.icons8.com/metro/26/high-volume.png'/></button>
-
-          
-          <webaudio-switch src="./components/images/switches/switch1.png" 
-          value="0" height="56" width="56" 
-          tooltip="Tourne disques">
-          
-          </webaudio-switch>
-        
-<div class="button-group">
-
-<webaudio-knob
-          src="./components/images/LittlePhatty.png"
-          id="soixante" value="0" step="1" min="-30" max="30"
-          diameter="64"
-          tooltip="60 Hz">
-          </webaudio-knob>
-
-          <webaudio-knob
-          src="./components/images/LittlePhatty.png" 
-          id="centSoixanteDix" value="0" step="1" min="-30" max="30"
-          diameter="64"
-          tooltip="170 Hz">
-          </webaudio-knob>
-
-          <webaudio-knob
-          src="./components/images/LittlePhatty.png" 
-          id="troisCentsCinquante" value="0" step="1" min="-30" max="30"
-          diameter="64"
-          tooltip="350 Hz">
-          </webaudio-knob>
-
-          <webaudio-knob
-          src="./components/images/LittlePhatty.png" 
-          id="mille" value="0" step="1" min="-30" max="30"
-          diameter="64"
-          tooltip="1000 Hz">
-          </webaudio-knob>
-
-          <webaudio-knob
-          src="./components/images/LittlePhatty.png" 
-          id="troisMilleCinqCent" value="0" step="1" min="-30" max="30"
-          diameter="64"
-          tooltip="3500 Hz">
-          </webaudio-knob>
-
-
-          <webaudio-knob
-          src="./components/images/LittlePhatty.png" 
-          id="dixMille" value="0" step="1" min="-30" max="30"
-          diameter="64"
-          tooltip="10000 Hz">
-          </webaudio-knob>
-        
-          <webaudio-knob
-          class="test"
-          id="volumeControl1"
-          src="https://dorian-chapoulie.github.io/tp_webcomponents/components/assets/img/vu.png"
-          value=1
-          min=0
-          max=1
-          step=0.1
-          width=200
-          height=150
-          sprites=99
-          tooltip="Volume">
-      </webaudio-knob>
-
-          <webaudio-knob
-          id="pannerSlider"
-          class="test"
-          src="https://dorian-chapoulie.github.io/tp_webcomponents/components/assets/img/Vintage_VUMeter_2.png"
-          value=1
-          min=0
-          max=1
-          step=0.1
-          diameter=150
-          tooltip="Balance">
-        </webaudio-knob>
-
-        </div>  
-
-
-
-          </div>
-
-      </div>
-
-
-      <script src="my-balance.js"></script>
-      
-
-
-      
-
-
-      
     `;
 
     this.attachShadow({ mode: 'open' });
@@ -216,61 +20,19 @@ margin-left: 5%;
     
   }
 
-/**
-  muteButton.addEventListener('click', () => {
-    if (audio.muted) {
-      audio.muted = false;
-      muteButton.innerHTML = '<i class="bi-volume-up"> </i>';
-    } else {
-      audio.muted = true;
-      muteButton.innerHTML = '<i class="bi bi-volume-mute"></i>';
-    }
-  });
-
-   */
-
 
 
   connectedCallback() {
 
     
-    //const switchElement = this.shadowRoot.querySelectorAll('img, webaudio-knob, webaudio-switch');
-
-  
-
-
-
-
-
-    const switchElement = this.shadowRoot.querySelector('webaudio-switch');
-    const myBalanceComponents = document.querySelectorAll('my-balance');
-    
-    let switchState = '0'; // Initial state
-    
-    if (switchElement instanceof HTMLElement) {
-      switchElement.addEventListener('change', () => {
-        switchState = switchElement.checked ? '1' : '0';
-        console.log('Switch State:', switchState);
-    
-        // Toggle the visibility of my-balance components based on switch state
-        myBalanceComponents.forEach((balanceComponent) => {
-          console.log('Toggle Display:', switchState === '1' ? 'block' : 'none');
-          balanceComponent.style.display = switchState === '1' ? 'none' : 'block';
-        });
-      });
-    } else {
-      console.error('webaudio-switch not found or not an HTMLElement');
-    }
+    let elements = this.shadowRoot.querySelectorAll('img, webaudio-knob, webaudio-switch');
     
 
+    elements.forEach((e) => {
+      let elementPath = e.getAttribute('src');
+      // if the image path isn't already absolute, make it absolute
 
-
-
-    console.log('Number of my-balance components:', myBalanceComponents.length);
-
-
-
-
+    });
 
     
     const fileInput = this.shadowRoot.getElementById("file-input");
@@ -288,7 +50,6 @@ margin-left: 5%;
     const context = new AudioContext();
     let src = context.createMediaElementSource(audio);
 
-    
     fileInput.onchange = function() {
       const files = this.files;
       console.log('FILES[0]: ', files[0]);
@@ -371,32 +132,32 @@ margin-left: 5%;
 
       dixMille.addEventListener('input', () => {
         console.log("dixMille");
-        changeGain(dixMille.value, 5, "dixMille"); // Appelez la fonction changeGain avec la valeur du curseur
+        changeGain(dixMille.value, 5); // Appelez la fonction changeGain avec la valeur du curseur
       });
   
       troisMilleCinqCent.addEventListener('input', () => {
         console.log("troisMilleCinqCent");
-        changeGain(troisMilleCinqCent.value, 4, "troisMilleCinqCent"); // Appelez la fonction changeGain avec la valeur du curseur
+        changeGain(troisMilleCinqCent.value, 4); // Appelez la fonction changeGain avec la valeur du curseur
       });
   
       mille.addEventListener('input', () => {
         console.log("mille");
-        changeGain(mille.value, 3, "mille"); // Appelez la fonction changeGain avec la valeur du curseur
+        changeGain(mille.value, 3); // Appelez la fonction changeGain avec la valeur du curseur
       });
   
       troisCentsCinquante.addEventListener('input', () => {
         console.log("troisCentsCinquante");
-        changeGain(troisCentsCinquante.value, 2, "troisCentsCinquante"); // Appelez la fonction changeGain avec la valeur du curseur
+        changeGain(troisCentsCinquante.value, 2); // Appelez la fonction changeGain avec la valeur du curseur
       });
   
       centSoixanteDix.addEventListener('input', () => {
         console.log("soixante");
-        changeGain(centSoixanteDix.value, 1, "centSoixanteDix"); // Appelez la fonction changeGain avec la valeur du curseur
+        changeGain(centSoixanteDix.value, 1); // Appelez la fonction changeGain avec la valeur du curseur
       });
   
       soixante.addEventListener('input', () => {
         console.log("soixante");
-        changeGain(soixante.value, 0, "soixante"); // Appelez la fonction changeGain avec la valeur du curseur
+        changeGain(soixante.value, 0); // Appelez la fonction changeGain avec la valeur du curseur
       });
 
 
@@ -500,7 +261,7 @@ margin-left: 5%;
 
 
     
-    function changeGain(sliderVal,nbFilter, nom) {
+    function changeGain(sliderVal,nbFilter) {
       var value = parseFloat(sliderVal);
       filters[nbFilter].gain.value = value;
       
@@ -525,11 +286,11 @@ margin-left: 5%;
  */
 
       // Construct the ID of the element to access
-      var elementId = nom;
+      var elementId = "gain" + nbFilter;
 
       // Try to find the element in the shadowRoot
 
-      var hostElement = document.querySelector('music-visualizer-component'); // Replace with your actual host element's selector
+      var hostElement = document.querySelector('music-visualizer-component1'); // Replace with your actual host element's selector
       var gainElement = hostElement.shadowRoot.getElementById(elementId);
 
       //var gainElement = this.shadowRoot.getElementById(elementId);
@@ -537,7 +298,7 @@ margin-left: 5%;
       if (gainElement) {
         // Update the value of the found element
      //   console.log("nbFilter"+value);
-        gainElement.tooltip = value + " dB";
+        gainElement.value = value + " dB";
       } else {
         console.error("Element with ID '" + elementId + "' not found.");
       }
@@ -643,4 +404,4 @@ margin-left: 5%;
   }
 }
 
-customElements.define('music-visualizer-component', MusicVisualizerComponent);
+customElements.define('music-visualizer-component1', MusicVisualizerComponent1);
