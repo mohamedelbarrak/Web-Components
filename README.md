@@ -24,6 +24,55 @@ Audio Disque Component
 ````
 The my-disque component represents a record player with audio controls. You can customize the appearance and behavior by modifying the styles and scripts in the my-disque.js file.
 
+## Music Visualizer Component
+Play Button
+
+Icon: Play Icon
+Function: Initiates the playback of the audio.
+Pause Button
+
+Icon: Pause Icon
+Function: Pauses the currently playing audio.
+Stop Button
+
+Icon: Stop Icon
+Function: Stops the audio playback and resets the current time to the beginning.
+Skip Backward Button
+
+Icon: Rewind Icon
+Function: Skips the audio playback backward by 5 seconds.
+Skip Forward Button
+
+Icon: Fast Forward Icon
+Function: Skips the audio playback forward by 5 seconds.
+Mute Button
+
+Icon: Mute Icon
+Function: Toggles the mute state of the audio. When muted, the icon changes to High Volume Icon.
+Decrease Volume Button
+
+Icon: Low Volume Icon
+Function: Decreases the audio volume by 0.1.
+Increase Volume Button
+
+Icon: High Volume Icon
+Function: Increases the audio volume by 0.1.
+Volume Control Slider
+
+Function: Allows manual adjustment of the audio volume using a slider.
+Switch Button
+
+Icon: Toggle switch
+Function: Toggles the visibility of the my-balance components based on the state of the switch.
+Equalizer Knobs
+
+Functions: Adjust the gain for specific frequency bands (60 Hz, 170 Hz, 350 Hz, 1000 Hz, 3500 Hz, 10000 Hz).
+Balance Knobs
+
+Functions: Adjust the balance and volume controls for the audio.
+
+## Audio Disque (my-disque) Component
+
 ## Customization
 Styles: Customize the appearance of the visualizer and disque components by modifying the CSS styles in the music-visualizer-component.js and my-disque.js files.
 
