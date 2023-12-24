@@ -1,7 +1,3 @@
-const getBaseUrl = () => {
-    return "https://dorian-chapoulie.github.io/tp_webcomponents/components";
-  }
-
 const template = document.createElement("template");
 template.innerHTML = /*html*/`
     <link rel="stylesheet" href="css/style.css">
