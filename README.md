@@ -1,6 +1,9 @@
 # My Media Player
 Welcome to My Media Player, a web application that provides a customizable music visualizer and a set of audio disque controls. This project is built using web components, allowing you to easily integrate and customize different audio components in your web pages.
 
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/e7dfdb02-8d5c-47b7-80e7-c8d03a834c6c)
+
+
 ## Features
 Music Visualizer: The music visualizer component creates a dynamic visual representation of the audio being played. It displays colorful bars that move in sync with the audio frequency.
 
