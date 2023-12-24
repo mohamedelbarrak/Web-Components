@@ -88,9 +88,11 @@ Functions: Adjust the balance and volume controls for the audio.
 
 ## Audio Disque (my-disque) Component
 Play/Pause
+
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/c7e42d79-807c-46a3-a54f-1fb0b9030613)
 
 Volume Control Slider
+
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/2a54ac49-1ea1-4b7d-ab0f-1f54b67fd637)
 
 ## Customization
