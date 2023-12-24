@@ -4,13 +4,9 @@ const getBaseUrl = () => {
 
 const template = document.createElement("template");
 template.innerHTML = /*html*/`
-    <style>
-    </style>
     <link rel="stylesheet" href="css/style.css">
-  <link rel="FaviconIcon" href="favicon.ico" type="image/x-icon">
-  <script src="music-visualizer-component.js" type="module"></script>
-  <script src="components/libs/webaudiocontrols.js"></script>
-
+    <link rel="FaviconIcon" href="favicon.ico" type="image/x-icon">
+    <script src="components/libs/webaudiocontrols.js"></script>
     <div class="record-player">
     <input type="checkbox" id="headshell">
     <label class="headshell" for="headshell"></label>
@@ -22,20 +18,17 @@ template.innerHTML = /*html*/`
     <div class="platter"></div>
     <div class="vinyl"></div>
     <div class="top-circle"></div>
-  </div>
-
+    </div>
 `;
 
-class Balance extends HTMLElement {
+class Disque extends HTMLElement {
     constructor() {
-        console.log("Balance0");
         super();
         this.attachShadow({ mode: "open" });
         this.filters = [];
     }
 
     connectedCallback() {
-        console.log("Balance connectedCallback 0");
         this.shadowRoot.appendChild(template.content.cloneNode(true));
         this.init();
     }
@@ -58,16 +51,12 @@ class Balance extends HTMLElement {
 
         input.addEventListener("click", function(){
             if(audio.paused){
-            //pannerNode.play();
               audio.play();
               audio.currentTime = 0;
               input.innerHTML = "Pause";
-              dispatchEvent(new Event('music-play'));
             } else {
-                //this.pannerNode.pause();
               audio.pause();
               input.innerHTML = "Play";
-              dispatchEvent(new Event('music-pause'));
             }
         });
 
@@ -75,11 +64,7 @@ class Balance extends HTMLElement {
         volumeControl.addEventListener('input', () => {
             audio.volume = volumeControl.value;
             console.log(audio.volume);
-          });
-          
+          });  
     }
-
-
 }
-
-customElements.define("my-balance", Balance);
+customElements.define("my-disque", Disque);
