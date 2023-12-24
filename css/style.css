@@ -1,5 +1,5 @@
 body {
-  background-image: url("/components/images/abstract-grunge-background-with-retro-radio-vector-19384504.jpeg");
+  background-image: url("../components/images/abstract-grunge-background-with-retro-radio-vector-19384504.jpeg");
   padding: 0;
   margin: 0;
   background-color: floralwhite;
@@ -30,7 +30,6 @@ my-box {
   width: 80%;
   height: 55%;
   background-color: #3498db;
-  background-image: url('../components/images/kisspng-audio-mixers-vector-graphics-disc-jockey-dj-mixer-dj-mixer-pirate-studios-5d31b9b7505335.608541721563539895329.png');
   background-repeat: no-repeat;
 background-attachment: fixed;
 background-position: center;
