@@ -65,7 +65,9 @@ Increase Volume Button
 Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/dd008746-739c-47d1-9a51-5169c2208569)
 
 Function: Increases the audio volume by 0.1.
+
 Volume Control Slider
+
 Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/f46322a6-44bb-409e-a23e-cae3902e5762)
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/75656288-8492-4718-b61f-be767e8a61ac)
 
