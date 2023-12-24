@@ -33,36 +33,43 @@ Play Button
 Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/40d36350-c5d9-4aa7-91e9-2b37b101b08f)
 
 Function: Initiates the playback of the audio.
+
 Pause Button
 
 Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/9d021f1b-3e82-43c0-a22d-7706b4fd6a78)
 
 Function: Pauses the currently playing audio.
+
 Stop Button
 
 Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/c5b6c034-f481-4fc7-b9ec-00895bb6c7c4)
 
 Function: Stops the audio playback and resets the current time to the beginning.
+
 Skip Backward Button
 
 Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/d68170e7-99ee-4dd4-9e51-97ad3c42f931)
 
 Function: Skips the audio playback backward by 5 seconds.
+
 Skip Forward Button
 
 Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/e10aa27c-e856-48bd-8e24-588f88f6fa01)
 
 Function: Skips the audio playback forward by 5 seconds.
+
 Mute Button
 
 Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/56f75b3e-4d2a-40ba-a20c-7d6a601c7e46)
 
 Function: Toggles the mute state of the audio. When muted, the icon changes to High Volume Icon.
+
 Decrease Volume Button
 
 Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/141e1835-099c-48dd-a021-1394b9e75812)
 
 Function: Decreases the audio volume by 0.1.
+
 Increase Volume Button
 
 Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/dd008746-739c-47d1-9a51-5169c2208569)
@@ -75,15 +82,18 @@ Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/75656288-8492-4718-b61f-be767e8a61ac)
 
 Function: Allows manual adjustment of the audio volume using a slider.
+
 Switch Button
 
 Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/f251855c-3a6b-47cc-99f0-e5896255b91c)
 
-Function: Toggles the visibility of the my-balance components based on the state of the switch.
+Function: Toggles the visibility of the my-disque components based on the state of the switch.
+
 Equalizer Knobs
 Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/a9be86af-792f-4d0f-91f4-30b2bb4a8539)
 
 Functions: Adjust the gain for specific frequency bands (60 Hz, 170 Hz, 350 Hz, 1000 Hz, 3500 Hz, 10000 Hz).
+
 Balance Knobs
 Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/7b491094-9b6e-4395-800b-0deba052969b)
 
