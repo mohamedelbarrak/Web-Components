@@ -39,5 +39,9 @@ la même chose pour /{id}
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/c3e39923-8812-49b3-a6b3-03f933bf0e38)
 
 
-## h2-console
+## h2-console position
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/5842c6b0-dac8-4c5e-8ab3-227066e1dfbe)
+
+## h2-console student
+
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/c8a1f1a3-6eb9-4b17-875d-ee7dc2432645)
