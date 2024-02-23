@@ -68,6 +68,8 @@ eureka.instance.ip-address=true pour enregistrer les machines en fonction de leu
 
 Pour avoir le routage dynamique:  spring.cloud.gateway.discovery.locator.enabled=true
 
+Routage dynamique, on connaît simplement le nom du service, pas besoin de l'IP
+
 http://localhost:8888/POSITION/positions
 http://localhost:8888/STUDENT/students
 
