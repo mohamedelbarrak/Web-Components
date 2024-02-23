@@ -1,6 +1,8 @@
 # Microservices
 
 ## Position
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/66fc52b6-8a55-49b8-b42e-1d4a0141f6dd)
+
 http://localhost:8091/swagger-ui/index.html#/
 j'ai utilisé swagger
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/c251487c-15b2-4338-92f6-8913d35caf66)
@@ -14,7 +16,14 @@ GET /positions/{id}
 
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/14ffca50-8e22-4793-a329-9c9472a47e06)
 
-
-
-
 ## Student
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/a69d7ddf-4368-497d-8f6c-e09c3e257327)
+
+
+GET /students
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/30a0e5f1-31ca-454b-8b34-dadabac3670e)
+
+GET /student/{id}
+
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/246124d1-1cc3-4e83-a6a9-e9ccad1fe8a7)
+
