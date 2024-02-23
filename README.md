@@ -85,3 +85,8 @@ http://localhost:8888/STUDENT/actuator
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/d3e102ff-4d43-45f9-92ec-49b3792718bb)
 
 Tous les points d'entrées qu'il propose.
+
+## Circuit Breakers
+
+
+
