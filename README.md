@@ -47,7 +47,7 @@ la même chose pour /{id}
 
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/c8a1f1a3-6eb9-4b17-875d-ee7dc2432645)
 
-## GatewayApplication
+## GatewayApplication Routage Static
 
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/79a1ba79-6ac3-4584-a5be-d8990aed667e)
 
@@ -63,3 +63,13 @@ http://localhost:8761/
 Donc, avec le 8761, je peux lister pour voir à quel endroit.
 
 eureka.instance.ip-address=true pour enregistrer les machines en fonction de leur adresse IP
+
+## Routage dynamique (not required to for execution)
+
+Pour avoir le routage dynamique:  spring.cloud.gateway.discovery.locator.enabled=true
+
+http://localhost:8888/POSITION/positions
+http://localhost:8888/STUDENT/students
+
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/0251d563-e45f-471f-8181-c501578961f1)
+
