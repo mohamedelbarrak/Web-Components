@@ -7,11 +7,13 @@ j'ai utilisé swagger
 
 GET /positions
 
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/a76c6fc0-6186-4ee6-a422-92ec38d28792)
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/d5e43aa6-c7e7-4204-ae77-2e21e76230e1)
+
 
 GET /positions/{id}
 
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/9df213b1-6a6a-47d3-a22d-a4adb2943a68)
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/14ffca50-8e22-4793-a329-9c9472a47e06)
+
 
 
 
