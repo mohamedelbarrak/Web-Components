@@ -8,15 +8,14 @@ j'ai utilisé swagger
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/c251487c-15b2-4338-92f6-8913d35caf66)
 
 GET /positions
-
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/d5e43aa6-c7e7-4204-ae77-2e21e76230e1)
 
 
 GET /positions/{id}
-
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/14ffca50-8e22-4793-a329-9c9472a47e06)
 
 ## Student
+
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/a69d7ddf-4368-497d-8f6c-e09c3e257327)
 
 
@@ -43,5 +42,9 @@ la même chose pour /{id}
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/5842c6b0-dac8-4c5e-8ab3-227066e1dfbe)
 
 ## h2-console student
-
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/c8a1f1a3-6eb9-4b17-875d-ee7dc2432645)
+
+## GatewayApplication
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/79a1ba79-6ac3-4584-a5be-d8990aed667e)
+
+
