@@ -75,3 +75,7 @@ http://localhost:8888/STUDENT/students
 
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/0251d563-e45f-471f-8181-c501578961f1)
 
+## Actuator
+
+Pour obtenir l'état des serveurs et actualiser le serveur de configuration
+
