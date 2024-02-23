@@ -88,5 +88,9 @@ Tous les points d'entrées qu'il propose.
 
 ## Circuit Breakers
 
+Position server ON :
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/b18e88d5-54ce-49e2-ad68-0cc63a999d37)
 
+Position server OFF :
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/2a5cc7a6-2b23-49f6-95b1-2918dfc3bfc2)
 
