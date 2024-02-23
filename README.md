@@ -1,6 +1,7 @@
 # Microservices
 
 ## Position
+
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/66fc52b6-8a55-49b8-b42e-1d4a0141f6dd)
 
 http://localhost:8091/swagger-ui/index.html#/
@@ -39,12 +40,26 @@ la même chose pour /{id}
 
 
 ## h2-console position
+
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/5842c6b0-dac8-4c5e-8ab3-227066e1dfbe)
 
 ## h2-console student
+
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/c8a1f1a3-6eb9-4b17-875d-ee7dc2432645)
 
 ## GatewayApplication
+
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/79a1ba79-6ac3-4584-a5be-d8990aed667e)
 
+## Discovery
 
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/0a9e2c11-ff1e-41c4-bc3b-f6b5568fa34c)
+
+Spring Eureka
+http://localhost:8761/
+
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/0c4fdb31-721e-43bb-bc79-d95c631b1fa9)
+
+Donc, avec le 8761, je peux lister pour voir à quel endroit.
+
+eureka.instance.ip-address=true pour enregistrer les machines en fonction de leur adresse IP
