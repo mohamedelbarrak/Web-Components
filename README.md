@@ -27,3 +27,15 @@ GET /student/{id}
 
 ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/246124d1-1cc3-4e83-a6a9-e9ccad1fe8a7)
 
+## Création d’un lien entre les deux services en utilisant Open Feign pour répondre aux besoins
+
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/680ec0e9-1984-4b37-b94f-a16ab1489271)
+
+
+Le lien est bien créé:
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/213cd20d-4722-4525-82cd-3d6ba9c9d922)
+
+la même chose pour /{id}
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/c3e39923-8812-49b3-a6b3-03f933bf0e38)
+
+
