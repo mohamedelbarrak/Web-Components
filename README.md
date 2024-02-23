@@ -1,4 +1,20 @@
 # Microservices
+Welcome to Microservices project
+
+Tous les 7 besoins sont couverts et réaliser dans ce projet :
+1) Réaliser le service « Position »
+2) Réaliser le service « Student »
+3) Création d’un lien entre les deux services en utilisant Open Feign pour répondre aux
+besoins
+4) Mise en œuvre des bonnes pratiques de développement (Services interface / Dtos /
+Mappers) sur les deux services créés
+5) Mise en place des services de Gateway
+6) Discovery
+7) Mise en place d’un Circuit Breakers
+
+Les banches :
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/baa30172-c9a2-4144-be68-5cb1dd5e2f01)
+
 
 ## Position
 
