@@ -1,114 +1,125 @@
-# Microservices
-Welcome to Microservices project
+# My Media Player
+Welcome to My Media Player, a web application that provides a customizable music visualizer and a set of audio disque controls. This project is built using web components, allowing you to easily integrate and customize different audio components in your web pages.
 
-Tous les 7 besoins sont couverts et réaliser dans ce projet :
-1) Réaliser le service « Position »
-2) Réaliser le service « Student »
-3) Création d’un lien entre les deux services en utilisant Open Feign pour répondre aux
-besoins
-4) Mise en œuvre des bonnes pratiques de développement (Services interface / Dtos /
-Mappers) sur les deux services créés
-5) Mise en place des services de Gateway
-6) Discovery
-7) Mise en place d’un Circuit Breakers
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/e7dfdb02-8d5c-47b7-80e7-c8d03a834c6c)
 
-Les banches :
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/baa30172-c9a2-4144-be68-5cb1dd5e2f01)
+[Youtube demonstration](https://youtu.be/cNqfzNqpc4w)
+## Features
+Music Visualizer: The music visualizer component creates a dynamic visual representation of the audio being played. It displays colorful bars that move in sync with the audio frequency.
 
+Audio Disque Controls: The audio disque component, allows you to control various audio parameters such as volume, play and pause the audio.
 
-## Position
+## Getting Started
+Clone the repository to your local machine:
+[git clone https://github.com/my-media-player.git](https://github.com/mohamedelbarrak/Web-Components.git)
+Open the index.html file in your preferred web browser to see the media player in action.
 
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/66fc52b6-8a55-49b8-b42e-1d4a0141f6dd)
+## Usage
+Music Visualizer Component
+`html
+<music-visualizer-component class="gradient-border" id="box"></music-visualizer-component>
+`
+This component creates a visualizer that reacts to the audio being played. You can customize its appearance by modifying the styles in the music-visualizer-component.js file.
 
-http://localhost:8091/swagger-ui/index.html#/
-j'ai utilisé swagger
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/c251487c-15b2-4338-92f6-8913d35caf66)
+Audio Disque Component
+`html
+<my-disque audio-path="./assets/audio/RapTrap1.mp3"></my-disque>
+`
+The my-disque component represents a record player with audio controls. You can customize the appearance and behavior by modifying the styles and scripts in the my-disque.js file.
 
-GET /positions
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/d5e43aa6-c7e7-4204-ae77-2e21e76230e1)
+## Music Visualizer Component
+Play Button
 
+Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/40d36350-c5d9-4aa7-91e9-2b37b101b08f)
 
-GET /positions/{id}
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/14ffca50-8e22-4793-a329-9c9472a47e06)
+Function: Initiates the playback of the audio.
 
-## Student
+Pause Button
 
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/a69d7ddf-4368-497d-8f6c-e09c3e257327)
+Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/9d021f1b-3e82-43c0-a22d-7706b4fd6a78)
 
+Function: Pauses the currently playing audio.
 
-GET /students
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/30a0e5f1-31ca-454b-8b34-dadabac3670e)
+Stop Button
 
-GET /student/{id}
+Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/c5b6c034-f481-4fc7-b9ec-00895bb6c7c4)
 
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/246124d1-1cc3-4e83-a6a9-e9ccad1fe8a7)
+Function: Stops the audio playback and resets the current time to the beginning.
 
-## Création d’un lien entre les deux services en utilisant Open Feign pour répondre aux besoins
+Skip Backward Button
 
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/680ec0e9-1984-4b37-b94f-a16ab1489271)
+Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/d68170e7-99ee-4dd4-9e51-97ad3c42f931)
 
+Function: Skips the audio playback backward by 5 seconds.
 
-Le lien est bien créé:
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/213cd20d-4722-4525-82cd-3d6ba9c9d922)
+Skip Forward Button
 
-la même chose pour /{id}
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/c3e39923-8812-49b3-a6b3-03f933bf0e38)
+Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/e10aa27c-e856-48bd-8e24-588f88f6fa01)
 
+Function: Skips the audio playback forward by 5 seconds.
 
-## h2-console position
+Mute Button
 
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/5842c6b0-dac8-4c5e-8ab3-227066e1dfbe)
+Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/56f75b3e-4d2a-40ba-a20c-7d6a601c7e46)
 
-## h2-console student
+Function: Toggles the mute state of the audio. When muted, the icon changes to High Volume Icon.
 
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/c8a1f1a3-6eb9-4b17-875d-ee7dc2432645)
+Decrease Volume Button
 
-## GatewayApplication Routage Static
+Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/141e1835-099c-48dd-a021-1394b9e75812)
 
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/79a1ba79-6ac3-4584-a5be-d8990aed667e)
+Function: Decreases the audio volume by 0.1.
 
-## Discovery
+Increase Volume Button
 
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/0a9e2c11-ff1e-41c4-bc3b-f6b5568fa34c)
+Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/dd008746-739c-47d1-9a51-5169c2208569)
 
-Spring Eureka
-http://localhost:8761/
+Function: Increases the audio volume by 0.1.
 
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/0c4fdb31-721e-43bb-bc79-d95c631b1fa9)
+Volume Control Slider
 
-Donc, avec le 8761, je peux lister pour voir à quel endroit.
+Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/f46322a6-44bb-409e-a23e-cae3902e5762)
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/75656288-8492-4718-b61f-be767e8a61ac)
 
-eureka.instance.ip-address=true pour enregistrer les machines en fonction de leur adresse IP
+Function: Allows manual adjustment of the audio volume using a slider.
 
-## Routage dynamique (not required to for execution)
+Switch Button
 
-Pour avoir le routage dynamique:  spring.cloud.gateway.discovery.locator.enabled=true
+Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/f251855c-3a6b-47cc-99f0-e5896255b91c)
 
-Routage dynamique, on connaît simplement le nom du service, pas besoin de l'IP
+Function: Toggles the visibility of the my-disque components based on the state of the switch.
 
-http://localhost:8888/POSITION/positions
-http://localhost:8888/STUDENT/students
+Equalizer
 
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/0251d563-e45f-471f-8181-c501578961f1)
+Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/a9be86af-792f-4d0f-91f4-30b2bb4a8539)
 
-## Actuator
+Functions: Adjust frequency bands (60 Hz, 170 Hz, 350 Hz, 1000 Hz, 3500 Hz, 10000 Hz).
 
-Pour obtenir l'état des serveurs et actualiser le serveur de configuration.
+Balance
 
-http://localhost:8888/POSITION/actuator
-http://localhost:8888/STUDENT/actuator
+Icon: ![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/7b491094-9b6e-4395-800b-0deba052969b)
 
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/d3e102ff-4d43-45f9-92ec-49b3792718bb)
+Functions: Adjust the balance for the audio.
 
-Tous les points d'entrées qu'il propose.
+## Audio Disque (my-disque) Component
+Play/Pause
 
-## Circuit Breakers
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/c7e42d79-807c-46a3-a54f-1fb0b9030613)
 
-Position server ON :
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/b4b632ef-3044-4583-953e-6a4bcbc8bdeb)
+Volume Control Slider
 
-Position server OFF :
-![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/2c761a61-acc9-442b-8d2f-d6947f29a598)
+![image](https://github.com/mohamedelbarrak/Web-Components/assets/66890099/2a54ac49-1ea1-4b7d-ab0f-1f54b67fd637)
 
-Merci pour votre lecture.
-EL BARRAK Mohamed
+## Customization
+Styles: Customize the appearance of the visualizer and disque components by modifying the CSS styles in the music-visualizer-component.js and my-disque.js files.
+
+Functionality: Adjust the audio processing and control logic by modifying the JavaScript code in the music-visualizer-component.js and my-disque.js files.
+
+## Dependencies
+Bootstrap Icons
+
+WebAudioControls
+
+## Acknowledgments
+The visualizer component uses inspiration from various online resources and tutorials on web audio visualization.
+Feel free to explore and enhance this media player for your specific needs. If you encounter any issues or have suggestions for improvements, please create an issue or submit a pull request. Happy coding!
